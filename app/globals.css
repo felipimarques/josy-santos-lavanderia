@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-bg text-ink font-body antialiased;
+}
+
+/* blobs orgânicos turquesa (genome.texture — frescor sem clichê) */
+.blob-bg {
+  position: relative;
+  overflow: hidden;
+}
+.blob-bg::before,
+.blob-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(0, 174, 207, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.blob-bg::before {
+  width: 480px;
+  height: 480px;
+  top: -160px;
+  right: -120px;
+}
+.blob-bg::after {
+  width: 380px;
+  height: 380px;
+  bottom: -140px;
+  left: -100px;
+}
+
+/* etiqueta de preço (genome: preço sempre visível) */
+.price-tag {
+  @apply rounded-tag bg-navy text-white;
+}
+
+:focus-visible {
+  outline: 3px solid #007d9c;
+  outline-offset: 2px;
+}
